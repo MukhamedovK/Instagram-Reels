@@ -7,7 +7,7 @@ class Video(models.Model):
     description = models.TextField()
     video_likes = models.IntegerField(default=0)
     subcategory = models.ForeignKey('Subcategory', on_delete=models.CASCADE)
-    create_at = models.DateField()
+    create_at = models.DateTimeField()
 
     def __str__(self):
         return f'{self.id} - {self.subcategory.name}'
@@ -31,10 +31,9 @@ class Subcategory(models.Model):
 
 
 class Like(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
-    user = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     liked_video = models.ForeignKey(Video, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user} - {self.liked_video.subcategory.name}"
+        return f"{self.user.username} - {self.liked_video.subcategory.name}"
 

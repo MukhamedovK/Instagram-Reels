@@ -3,6 +3,8 @@ import boto3
 from botocore.client import Config
 from environs import Env
 
+from .models import Like
+
 env = Env()
 env.read_env()
 
@@ -24,4 +26,10 @@ class TimewebS3:
             config=Config(s3={'addressing_style': 'path'}),
         )
 
+
+def like_status(serializer, user):
+    for data in serializer.data:
+        data['you_liked'] = Like.objects.filter(user=user, liked_video__id=data['id']).exists()
+    
+    return serializer
 
