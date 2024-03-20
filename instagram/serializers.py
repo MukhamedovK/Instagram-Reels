@@ -13,7 +13,7 @@ class AllReelsSerializer(ModelSerializer):
 
     def to_representation(self, instance):
         redata = super().to_representation(instance)
-        redata['video'] = f'{env.str('DOMEN')}{instance.video.url}'
+        redata['video'] = f'{env.str("DOMEN")}{instance.video.url}'
         redata['subcategory'] = instance.subcategory.name
 
         return redata
@@ -26,7 +26,7 @@ class RecommendationsSerializer(ModelSerializer):
 
     def to_representation(self, instance):
         redata = super().to_representation(instance)
-        redata['video'] = f'{env.str('DOMEN')}{instance.video.url}'
+        redata['video'] = f'{env.str("DOMEN")}{instance.video.url}'
         redata['subcategory'] = instance.subcategory.name
 
         return redata

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+
+{% block content %}
+<h2 class="mt-5 text-center">Login Page</h2>
+<form method="post" class="card p-3 w-50 mt-3">
+
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" aria-describedby="textHelp" />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" />
+  </div>
+
+  <a href="{% url 'register' %}" class="mb-3 text-decoration-none">Don't have an account?</a>
+
+  <button type="button" class="btn btn-primary" id="loginSubmit">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Registration</title>
+{% endblock %}
+
+
+{% block content %}
+<h2 class="mt-5 text-center">Register Page</h2>
+<form method="post" class="card p-3 w-50 mt-3" id="registerForm">
+
+  <div class="mb-3">
+    <label for="username" name="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" aria-describedby="textHelp" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" id="password" required />
+  </div>
+
+  <div class="mb-3">
+    <label for="password2" class="form-label">Password Again</label>
+    <input type="password" class="form-control" name="password2" id="password2" required />
+  </div>
+
+  <a href="{% url 'login_page' %}" class="mb-3 text-decoration-none">Already have to account?</a>
+
+  <button type="button" class="btn btn-primary" id="registerSubmit">Submit</button>
+</form>
+{% endblock %}
