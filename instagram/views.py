@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -8,11 +9,15 @@ from .serializers import AllReelsSerializer, RecommendationsSerializer
 from .utils import like_status
 
 
+def home_page(request):
+    return render(request, "instagram/home.html")
+
+
 class Permissions(APIView):
     permission_classes = [IsAuthenticated]
 
 
-class AllReelsView(APIView):
+class AllReelsView(Permissions):
 
     def get(self, request):
         all_videos = Video.objects.all()

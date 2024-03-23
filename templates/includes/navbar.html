@@ -1,11 +1,8 @@
 <nav class="navbar bg-dark d-flex justify-content-between py-3 px-5 align-items-center text-white" data-bs-theme="dark">
-    <a class="nav-link active" aria-current="page" href="#">Home</a>
-    {% if request.user.is_authenticated and request.user.auth_token %}
-    <a class="nav-link active" href="{% url 'logout_page' %}">Logout</a>
-    {% else %}
+    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
     <div class="d-flex gap-5">
-        <a class="nav-link active" href="{% url 'login_page' %}">Login</a>
-        <a class="nav-link active" href="{% url 'register' %}">Registration</a>
+        <p class="nav-link active" id="logout" style="cursor: pointer; display: none; margin-bottom: 0px;">Logout</p>
+        <a class="nav-link active" href="{% url 'login_page' %}" id="login">Login</a>
+        <a class="nav-link active" href="{% url 'register_page' %}" id="register">Registration</a>
     </div>
-    {% endif %}
 </nav>
